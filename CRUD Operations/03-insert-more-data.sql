@@ -1,4 +1,5 @@
 USE sales_examples;
+
 INSERT INTO sales (
   date_created,
   date_fulfilled,
