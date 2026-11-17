@@ -1,0 +1,38 @@
+DROP TABLE IF EXISTS intranet_accounts;
+DROP TABLE IF EXISTS company_buildings;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS teams;
+
+CREATE TABLE company_buildings(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(300) NOT NULL,
+
+);
+
+CREATE TABLE teams(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(300) NOT NULL,
+
+);
+
+CREATE TABLE IF NOT EXISTS employees(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(300) NOT NULL,
+    last_name VARCHAR(300) NOT NULL,
+    birthdate DATE NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS intranet_accounts(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(200) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    FOREIGN KEY (email) REFERENCES employees(email) ON DELETE CASCADE
+);
+
+-- CREATE TABLE projects(
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+
+-- );
+
+
