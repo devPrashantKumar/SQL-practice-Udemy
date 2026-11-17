@@ -10,7 +10,9 @@ CREATE TABLE users (
   first_name VARCHAR(300) NOT NULL,
   last_name VARCHAR(300) NOT NULL,
   email VARCHAR(300) NOT NULL,
-  address_id INT REFERENCES addresses (id) ON DELETE CASCADE
+  -- address_id INT REFERENCES addresses (id) ON DELETE RESTRICT  not working
+  address_id INT,
+  CONSTRAINT fk_user_address FOREIGN KEY (address_id) REFERENCES addresses(id) ON DELETE RESTRICT
 );
 
 CREATE TABLE cities (
