@@ -16,6 +16,11 @@ CREATE TABLE teams(
     FOREIGN KEY (building_id) REFERENCES company_buildings(id) ON DELETE SET NULL
 );
 
+-- CREATE TABLE projects(
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+
+-- );
+
 CREATE TABLE IF NOT EXISTS employees(
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(300) NOT NULL,
@@ -33,9 +38,6 @@ CREATE TABLE IF NOT EXISTS intranet_accounts(
     FOREIGN KEY (email) REFERENCES employees(email) ON DELETE CASCADE
 );
 
--- CREATE TABLE projects(
---     id INT PRIMARY KEY AUTO_INCREMENT,
 
--- );
 
 

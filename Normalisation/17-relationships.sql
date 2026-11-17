@@ -8,6 +8,11 @@
 
 -- );
 
+-- CREATE TABLE projects(
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+
+-- );
+
 CREATE TABLE IF NOT EXISTS employees(
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(300) NOT NULL,
@@ -22,10 +27,4 @@ CREATE TABLE IF NOT EXISTS intranet_accounts(
     password VARCHAR(200) NOT NULL,
     FOREIGN KEY (email) REFERENCES employees(email) ON DELETE CASCADE
 );
-
--- CREATE TABLE projects(
---     id INT PRIMARY KEY AUTO_INCREMENT,
-
--- );
-
 
