@@ -1,18 +1,19 @@
 DROP TABLE IF EXISTS intranet_accounts;
-DROP TABLE IF EXISTS company_buildings;
 DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS company_buildings;
+
 
 CREATE TABLE company_buildings(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(300) NOT NULL,
-
+    name VARCHAR(300) NOT NULL
 );
 
 CREATE TABLE teams(
-    id SERIAL PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(300) NOT NULL,
-
+    building_id INT,
+    FOREIGN KEY (building_id) REFERENCES company_buildings(id) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS employees(
@@ -20,7 +21,9 @@ CREATE TABLE IF NOT EXISTS employees(
     first_name VARCHAR(300) NOT NULL,
     last_name VARCHAR(300) NOT NULL,
     birthdate DATE NOT NULL,
-    email VARCHAR(200) NOT NULL UNIQUE
+    email VARCHAR(200) NOT NULL UNIQUE,
+    team_id INT,
+    FOREIGN KEY (team_id) REFERENCES teams(id) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS intranet_accounts(
